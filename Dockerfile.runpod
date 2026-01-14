@@ -39,7 +39,8 @@ RUN ln -sf /usr/bin/python3.11 /usr/local/bin/python3 && \
 
 # Install uv
 RUN curl -LsSf https://astral.sh/uv/install.sh | sh
-ENV PATH="/root/.cargo/bin:${PATH}"
+# ENV PATH="/root/.cargo/bin:${PATH}"
+ENV PATH="/root/.cargo/bin:/root/.local/bin:${PATH}"
 
 WORKDIR /opt/program
 
