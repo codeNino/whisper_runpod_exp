@@ -1,0 +1,42 @@
+[project]
+name = "build-code"
+version = "0.1.0"
+description = ""
+authors = [
+    {name = "Gershon", email = "gershblocks@gmail.com"}
+]
+requires-python = ">=3.10,<3.13"
+dependencies = [
+    "fastapi==0.111.0",
+    "huggingface-hub==0.23.2",
+    "pyannote-core==5.0.0",
+    "pydub==0.25.1",
+    "python-dotenv==1.0.1",
+    "python-multipart==0.0.9",
+    "torch==2.3.0",
+    "torchaudio==2.3.0",
+    "transformers==4.41.1",
+    "uvicorn==0.29.0",
+    "pandas==2.2.0",
+    "numpy==1.26.4",
+    "faster-whisper==1.0.3",
+    "sentence-transformers==3.0.1",
+    "pyarrow<21.0.0",
+    "opencv-python==4.10.0.84",
+    "pydantic==2.9.2",
+    "pydantic-core==2.23.4",
+    "typing-extensions==4.12.2",
+    "langchain==0.3.0",
+    "pyannote-audio==3.3.1",
+    "diarizers @ git+https://github.com/huggingface/diarizers.git",
+]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.metadata]
+allow-direct-references = true
+
+[tool.hatch.build.targets.wheel]
+packages = ["build_code"]
