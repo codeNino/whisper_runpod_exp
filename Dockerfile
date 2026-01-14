@@ -39,7 +39,9 @@ RUN ln -sf /usr/bin/python3.11 /usr/local/bin/python3 && \
 
 # Install uv
 RUN curl -LsSf https://astral.sh/uv/install.sh | sh
-ENV PATH="/root/.cargo/bin:${PATH}"
+# ENV PATH="/root/.cargo/bin:${PATH}"
+# ENV PATH="/root/.local/bin:$PATH"
+ENV PATH="/root/.cargo/bin:/root/.local/bin:${PATH}"
 
 WORKDIR /opt/program
 
@@ -47,6 +49,7 @@ COPY ./pyproject.toml /opt/program/
 # Sync dependencies (uv will create uv.lock if it doesn't exist)
 # Using --no-install-project since this is an application, not a library
 RUN uv sync --no-install-project 
+
 
 # Stage 2: Runtime Stage
 FROM nvidia/cuda:12.4.1-cudnn-runtime-ubuntu22.04

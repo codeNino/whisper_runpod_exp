@@ -5,11 +5,12 @@ on:
     inputs:
       dockerfile:
         description: "Dockerfile to use"
-        required: true
+        # required: true
         default: "Dockerfile"
       image_name:
         description: "Docker image name (without username)"
-        required: true
+        # required: true
+        default: whisper_runpod
       tag:
         description: "Docker image tag"
         required: false
